@@ -1,13 +1,15 @@
 
-
 <%= render 'navbar' %>
 <%= render 'villa' %>
 <%= render 'rooms' %>
 <%= render 'location' %>
 
-
-
 <script>
+$('.nav-tabs').on('shown.bs.tab', 'a', function (e) {
+    if (e.relatedTarget) {
+        $(e.relatedTarget).removeClass('active');
+    }
+})
 $('.multi-item-carousel').carousel({
   interval: false
 });

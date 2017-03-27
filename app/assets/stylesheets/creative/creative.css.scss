@@ -572,3 +572,12 @@ header .header {
     background-size: cover;
     -o-background-size: cover;
 }
+
+.nav-tabs > li, .nav-pills > li {
+    float:none;
+    display:inline-block;
+}
+
+.nav-tabs {
+    text-align:center;
+}

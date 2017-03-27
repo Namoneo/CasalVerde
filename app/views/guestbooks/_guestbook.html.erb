@@ -1,13 +1,16 @@
-<section id="portfolio">
-  <div class="container">
-  <div class=".col-xs-6 .col-sm-4s">
-    <h3>Guestbook</h3><br>
-    <% @guestbooks.each do |guestbook| %>
-    <div class="well">
-      <p>Guest: <%= guestbook.name %></p>
-      <p>Message: <%= guestbook.message %></p>
+
+
+    <div class="row is-flex">
+        <% @guestbooks.limit(3).order("RANDOM()").each do |guestbook| %>
+          <div class="col-sm-4">
+            <div class="card" style="width: 35rem; text-align: center;">
+              <div class="card-block">
+                  <h4 class="card-title">Guest:
+                  <%= guestbook.name %></h4>
+                  <p class="card-text"> Message:
+                  <%= guestbook.message %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
     </div>
-    <% end %>
-  </div>
-</div>
-</section>

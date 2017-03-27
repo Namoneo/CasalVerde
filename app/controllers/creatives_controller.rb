@@ -7,6 +7,7 @@ layout "creative"
     @photos = Photo.all
     @booking = Booking.new
     @contents = Content.all
+    @guestbooks = Guestbook.all
   end
 
   def show

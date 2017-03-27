@@ -2,8 +2,8 @@
 <% @carousel_photos = Photo.where(tag:"villa").order(created_at: :desc)%>
 <div class = "info-carousel"><%= render "shared/carousel" %></div>
 
-<div class="container">
 <% @info_content = Content.find_by_name("Villa long description") %>
+<br>
 <div class = "info-text"><%= render "shared/text"%></div>
-</div>
+
 </section>

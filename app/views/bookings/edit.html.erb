@@ -1,0 +1,61 @@
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand page-scroll" href="/">Welcome to Cas'al Verde</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+              <li>
+                  <a class="page-scroll" href="#about">Book now</a>
+              </li>
+              <li>
+                  <a class="page-scroll" href="#services">Information</a>
+              </li>
+              <li>
+                  <a class="page-scroll" href="#portfolio">First Impression</a>
+              </li>
+              <li>
+                  <a class="page-scroll" href="#contact">Contact</a>
+              </li>
+          </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+
+<section class="bg-primary">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 text-center">
+        <h2 class="section-heading">Your Booking</h2>
+      </div>
+      <div class="col-lg-8 col-lg-offset-2 text-center">
+        <p>Check-in: <%= @booking.start_date %>  | Check-out: <%= @booking.end_date %> | Number of Guests: <%= @booking.number_of_guests %></p>
+      </div>
+      <div class="col-lg-8 col-lg-offset-2 text-center">
+        <h4><strong>Total Price:</strong> <%= number_to_currency(@booking.calculate_total_price, precision: 2, separator: ',', unit: '€ ') %></h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">Booking Information</h2>
+        <p>Please fill in your details below to confirm your booking: </p>
+        <%= render 'shared/booking-details' %>
+      </div>
+    </div>
+  </div>

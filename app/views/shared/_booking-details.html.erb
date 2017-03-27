@@ -1,0 +1,61 @@
+<%= form_for @booking do |f| %>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="First Name", class="form-label">First Name</label>
+          <%= f.text_field :first_name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <label for="Last Name", class="form-label">Last Name</label>
+          <%= f.text_field :last_name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <label for="Date of Birth", class="form-label-alt">Date of Birth</label>
+          <div>
+            <%= f.date_select :date_of_birth, {order: [:day, :month, :year], prompt: { day: 'day', month: 'month', year: 'year' }, start_year: Date.today.year - 18, end_year: Date.today.year - 100} %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Phone Number", class="form-label">Phone Number</label>
+          <%= f.text_field :phone_number, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <label for="E-mail Address", class="form-label">E-mail Address</label>
+          <%= f.text_field :email, class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="Street Name", class="form-label">Street Name</label>
+          <%= f.text_field :street, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <label for="House Number", class="form-label">House Number</label>
+          <%= f.text_field :house_number, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <label for="ZIP Code", class="form-label">ZIP-code</label>
+          <%= f.text_field :zip_code, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <label for="City", class="form-label">City</label>
+          <%= f.text_field :city, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <label for="Country", class="form-label">Country</label>
+          <div>
+            <%= country_select "booking", "country", selected: "NL" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div>
+          <%= f.submit "Book now", class: "btn btn-default btn-xl" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

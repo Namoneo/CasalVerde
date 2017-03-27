@@ -1,0 +1,114 @@
+/*
+ *= require bootstrap-datetimepicker
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+body {
+  font-family: Helvetica;
+  color: #000;
+  background: #edf0f2;
+}
+
+a {color:#191a30; }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  color: #fff;
+  background-color: #2d3e62;
+  height: 50px;
+  padding-top: 5px;
+  border-bottom: 1px solid #586b95;
+}
+
+  h1, h1 a {
+    color: #fff;
+    font-size: 26px;
+    margin:0;
+    padding: 10px;
+  }
+  h1 a, h1 a:active, h1 a:visited, h1 a:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+
+#header_user {
+  padding: 5px 10px 0 0;
+}
+#current_user {
+  display: none;
+}
+#logout, #logout a {
+  margin-left: 5px;
+  color: #fff;
+  font-size: 90%;
+}
+
+#flex-container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+  aside {
+  }
+
+  .nav-title {
+    font-weight: bold;
+    padding: 10px 5px;
+    background-color: #2d3e62;
+    color: #fff;
+    display: block;
+  }
+  nav ul {
+    border: 1px solid #586b95;
+    padding: 0;
+    margin: 0;
+  }
+
+  ul li {
+    list-style: none;
+    padding: 5px 5px;
+    min-height: 20px;
+  }
+
+  nav ul li:nth-child(odd) {
+    background-color: #9ea7ba;
+  }
+
+  nav ul li:nth-child(even) {
+    background-color: #969fb0;
+  }
+
+
+
+
+/// MEDIA QUERIES
+
+@media screen and (min-width: 600px) {
+
+    header {
+      -webkit-box-shadow: 7px 9px 19px -8px rgba(0,0,0,0.47);
+      -moz-box-shadow: 7px 9px 19px -8px rgba(0,0,0,0.47);
+      box-shadow: 7px 9px 19px -8px rgba(0,0,0,0.47);
+      margin-bottom: 20px;
+    }
+
+    #flex-container {
+      flex-direction: row;
+      align-items: stretch;
+    }
+
+      aside {
+        min-width: 200px;
+        margin: 0px 20px;
+      }
+
+  }

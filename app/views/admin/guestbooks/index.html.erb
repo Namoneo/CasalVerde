@@ -1,0 +1,9 @@
+<h2>Guestbook</h2>
+<p>You've got <strong><%= @guestbooks_unpublished.length%></strong> published messages and <strong><%= @guestbooks_published.length%></strong> published messages in your guestbook!</p>
+<p>Go ahead and publish new messages, delete some or contact the person that left you the review.</p>
+
+<h3>Unpublished</h3>
+<%= render partial: "guestbook", object: @guestbooks_unpublished, as: 'items' %>
+
+<h3>Published</h3>
+<%= render partial: "guestbook", object: @guestbooks_published, as: 'items' %>

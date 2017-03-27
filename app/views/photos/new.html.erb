@@ -1,0 +1,33 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Choose the photograph you wish to upload
+
+  <div class="panel-body">
+    <%= form_for @photo do |f| %>
+
+      <div class="form-group">
+        <label>Image:</label>
+        <br>
+        <%= f.file_field :image %>
+        <br>
+      </div>
+
+      <div class="form-group">
+      <label>Please choose one tag for your photo from the list below: </label>
+      <br>
+        <%= f.select :tag, [["Villa","villa"], ["Indoor / Room", "room"], ["Outdoors or landscape", "outdoors"]], prompt: " ", class: "form-control" %>
+      </div>
+      <br>
+
+          <div class="actions">
+            <%= f.submit "Publish", class: "btn btn-primary" %>
+            <%= link_to "Cancel", information_path, class: "btn btn-primary"%>
+          </div>
+
+          <%end%>
+        </div>
+
+      </div>
+    </div>
+
+  </div>

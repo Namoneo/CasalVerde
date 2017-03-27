@@ -1,0 +1,35 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Choose the photograph you wish to upload
+
+  <div class="panel-body">
+    <%= form_for @photo do |f| %>
+      <div class="form-group">
+        <label>Image:</label>
+        <br>
+        <%= f.file_field :image %>
+        <br>
+
+        <label>Themes</label>
+
+      <%= f.collection_check_boxes(:theme_ids, Theme.all, :id, :name) do |b| %>
+        <div class="form-group">
+          <%= b.check_box(class: "check_box") %> <%= b.object.name %>
+        </div>
+      <% end %>
+
+        <%= f.hidden_field :tag, value: "villa" %>
+        <label> Publish this photo? </label>
+
+          <div class="actions">
+            <%= f.submit "Publish", class: "btn btn-primary" %>
+            <%= link_to "Cancel", information_path, class: "btn btn-primary"%>
+          </div>
+
+          <%end%>
+        </div>
+
+      </div>
+    </div>
+
+  </div>

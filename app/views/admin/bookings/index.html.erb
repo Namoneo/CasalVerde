@@ -1,0 +1,18 @@
+<h2>Booking overview</h2>
+Welcome to the booking overview page.
+
+<h3>Stats</h3>
+<ul>
+  <li><strong><%=pluralize(@bookings_casal.length, 'booking')%></strong> made on your website.</li>
+  <li><strong><%=pluralize(@bookings_bookingcom.length, 'booking')%></strong>  made at Booking.com</li>
+  <li><strong><%=pluralize(@bookings_micazu.length, 'booking')%></strong>  made at Micazu.</li>
+</ul>
+
+<h3>Bookings from frontend</h3>
+<%= render partial: "booking", object: @bookings_casal, as: 'items' %>
+
+<h3>Bookings from Booking.com</h3>
+<%= render partial: "booking", object: @bookings_bookingcom, as: 'items' %>
+
+<h3>Bookings from Micazu</h3>
+<%= render partial: "booking", object: @bookings_micazu, as: 'items' %>

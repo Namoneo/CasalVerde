@@ -1,0 +1,34 @@
+<section id="rooms", class="no-padding">
+  <% @carousel_photos = Photo.where(tag:"room").order(created_at: :desc)%>
+<div class = "info-carousel"><%= render "shared/carousel" %></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+<% @info_content = Content.find_by_name("Indoor Amentities") %>
+<div class = "info-text col-sm-3"><%= render "shared/text" %></div>
+<!-- <% @info_content = Content.find_by_name("Kitchen") %>
+<div class = "info-text col-sm-3"><%= render "shared/text" %></div> -->
+<!-- <% @info_content = Content.find_by_name("Living room") %>
+<div class = "info-text col-sm-3"><%= render "shared/text" %></div> -->
+<!-- <% @info_content = Content.find_by_name("Bedroom 1") %>
+<div class = "info-text col-sm-3"><%= render "shared/text" %></div> -->
+<!-- <% @info_content = Content.find_by_name("Bedroom 2") %>
+<div class = "info-text col-sm-3"><%= render "shared/text"%></div>
+<% @info_content = Content.find_by_name("Bedroom 3") %>
+<div class = "info-text col-sm-3"><%= render "shared/text"%></div>
+<% @info_content = Content.find_by_name("Bedroom 4") %>
+<div class = "info-text col-sm-3"><%= render "shared/text"%></div>
+<% @info_content = Content.find_by_name("Bedroom 5") %>
+<div class = "info-text col-sm-3"><%= render "shared/text"%></div>
+<% @info_content = Content.find_by_name("Bathrooms") %>
+<div class = "info-text col-sm-3"><%= render "shared/text"%></div>
+<% @info_content = Content.find_by_name("Kitchen") %>
+<div class = "info-text col-sm-3"><%= render "shared/text"%></div>
+<% @info_content = Content.find_by_name("Scullery") %>
+<div class = "info-text col-sm-3"><%= render "shared/text"%></div> -->
+<!-- <% @info_content = Content.find_by_name("Terraces") %>
+<div class = "info-text col-sm-3"><%= render "shared/text" %></div> -->
+</div>
+</div>
+</div>
+</section>

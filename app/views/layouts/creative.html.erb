@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cas'al Verde</title>
+  <%= stylesheet_link_tag 'creative/manifest.css', media: 'all' %>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.45/css/bootstrap-datetimepicker.css" />
+  <%= javascript_include_tag 'creative/manifest.js' %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+
+  <%= yield %>
+  <script type="text/javascript">
+      $('#datetimepicker-start input').click(function(event){
+      $('#datetimepicker-start ').data("DateTimePicker").show();
+      });
+      $('#datetimepicker-end input').click(function(event){
+      $('#datetimepicker-end ').data("DateTimePicker").show();
+      });
+      $(function () {
+        $('#datetimepicker-start').datetimepicker({
+          format: 'DD/MM/YYYY',
+          minDate:new Date(),
+        });
+        $('#datetimepicker-end').datetimepicker({
+          useCurrent: false, //Important! See issue #1075
+          format: "DD/MM/YYYY",
+          minDate:new Date()
+        });
+        $("#datetimepicker-start").on("dp.change", function (e) {
+          $('#datetimepicker-end').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker-end").on("dp.change", function (e) {
+          $('#datetimepicker-start').data("DateTimePicker").maxDate(e.date);
+        });
+      });
+
+  </script>
+
+</body>
+</html>

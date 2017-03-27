@@ -1,0 +1,42 @@
+<%= form_for Guestbook.new do |f| %>
+    <% if @guestbook.errors.any? %>
+      <div id="error_explanation">
+       <h4><%= pluralize(@guestbook.errors.count, "error") %> prohibited this guestbook entry from being saved</h4>
+       <ul><% @guestbook.errors.full_messages.each do |msg| %>
+         <li><%= msg %></li>
+       <% end %>
+       </ul>
+     </div>
+    <% end %>
+
+    <div id="notification_area">
+      <% flash.each do |key, value| %>
+        <% if value %>
+          <div id="thanks">
+            <h4><%= value %></h4>
+          </div>
+        <%end%>
+      <%end%>
+    </div>
+
+
+
+    <div class="form-group">
+      <label>Name</label>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>Email</label>
+      <%= f.text_field :email, class: "form-control" %>
+    </div>
+    <br>
+    <div class="form-group">
+      <label>Message</label>
+      <%= f.text_area :message, class: "form-control" %>
+    </div>
+    <br>
+    <div clas="action">
+      <%= f.submit "Submit", class: "btn btn-primary btn-xl page-scroll" %>
+    </div>
+<% end %>

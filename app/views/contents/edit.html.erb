@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Edit this content:
+   <strong><%= @content.name %></strong>
+  </div>
+
+  <div class="panel-body">
+    <%= form_for @content do |f| %>
+      <div class="form-group">
+        <label>Text:</label>
+        <br>
+        <%= f.text_area :paragraph, :class => "tinymce", :rows => 18, :cols => 80 %>
+        <%=tinymce%>
+      </div>
+
+      <label>Publish edited content?</label>
+
+        <div class="actions">
+          <%= f.submit "Publish", class: "btn btn-primary" %>
+          <%= link_to "Cancel", information_path, class: "btn btn-primary"%>
+        </div>
+
+    <%end%>
+  </div>
+
+</div>

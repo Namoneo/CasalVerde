@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin panel</title>
+  <%= stylesheet_link_tag 'admin/application.css', media: 'all' %>
+  <%= javascript_include_tag 'admin/application', 'data-turbolinks-track': 'reload' %>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+<header>
+  <h1><%= link_to "Admin panel", admin_root_path %></h1>
+  <div id="header_user" >
+    <span id="current_user"><%= current_user.email %> </span>
+    <span id="logout"><%= link_to('Logout', destroy_user_session_path, :method => :delete,  :confirm=>'Are you sure to log out?', :class => "btn btn-danger") %> </span>
+  </div>
+</header>
+
+<div id="flex-container">
+    <aside>
+      <nav>
+        <span class="nav-title">Bookings</span>
+        <ul>
+          <li><%= link_to "All bookings", admin_bookings_path %></li>
+          <li><%= link_to "New booking", new_admin_booking_path %></li>
+          <li><%= link_to "Season settings", admin_seasons_path %></li>
+        </ul>
+      </nav>
+
+      <nav>
+        <span class="nav-title">Guestbook</span>
+        <ul>
+          <li><%= link_to "All posts", admin_guestbooks_path %></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <section id="content">
+      <%= yield %>
+    </section>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<div id=carousel>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="carousel slide multi-item-carousel" id="theCarousel">
+        <div class="carousel-inner">
+          <% if admin? %>
+            <div class="item active">
+            <div class="item-item col-sm-4">
+            <%= link_to "Add a new photo to this carousel", new_photo_path, class: "btn btn-new-photo" %>
+            </div>
+            </div>
+          <% end %>
+
+          <% @carousel_photos.each_with_index do |photo, index|%>
+            <div class="item <%= 'active' if index == 0 && admin? == false %>">
+            <div class="item-item col-sm-4">
+            <%= image_tag photo.image, class: "img-responsive" %>
+            <% if admin? %>
+              <%= link_to "Replace", edit_photo_path(photo), class: "btn btn-default"%>
+              <%= link_to "Delete", photo_path(photo), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
+            <% end %>
+            </div>
+          </div>
+        <%end%>
+      </div>
+
+<!-- item end -->
+        </div>
+        <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+        <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+      </div>
+    </div>

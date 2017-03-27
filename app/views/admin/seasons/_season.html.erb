@@ -1,0 +1,22 @@
+<table class="table table-inverse">
+  <thead class="thead thead-inverse">
+    <th>Start date</th>
+    <th>End date</th>
+    <th>Nightly cost</th>
+    <th>Deposit</th>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% data.each do |season| %>
+    <tr>
+      <td><%= season.start_date%></td>
+      <td><%= season.end_date%></td>
+      <td><%= season.nightly_cost %></td>
+      <td><%= season.deposit%></td>
+      <td><%= link_to "Edit", edit_admin_season_path(season), class: "btn btn-primary btn-sm"%></td>
+      <td><%= link_to "Delete", admin_season_path(season), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

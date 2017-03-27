@@ -1,0 +1,32 @@
+<table class="table table-inverse">
+  <thead class="thead thead-inverse">
+    <th>ID</th>
+    <th>Status</th>
+    <th>Date</th>
+    <th>Name</th>
+    <th>Phonenumber</th>
+    <th>E-mail</th>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% items.each do |booking| %>
+    <tr>
+      <td><%= booking.id%></td>
+      <td>
+      <% if booking.confirmed %>
+        <span class="confirmed">confirmed</span>
+        <% else %>
+        <span class="unconfirmed">unconfirmed</span>
+        <% end %>
+      </td>
+      <td><%= booking.booking_dates%></td>
+      <td><%= booking.full_name %></td>
+      <td><%= booking.phone_number%></td>
+      <td><%= booking.email%></td>
+      <td><%= link_to "Edit", edit_admin_booking_path(booking), class: "btn btn-primary btn-sm"%></td>
+      <td><%= link_to "Delete", admin_booking_path(booking), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

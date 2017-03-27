@@ -1,0 +1,13 @@
+// Place all the styles related to the admin/bookings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.unconfirmed {
+  background-color:rgba(245, 130, 24, 0.72);
+  padding: 4px;
+  width: 100px;
+}
+.confirmed {
+  background-color:rgba(0, 255, 25, 0.72);
+  padding: 4px;
+  width: 200px;
+}

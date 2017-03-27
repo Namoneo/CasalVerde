@@ -1,0 +1,2 @@
+class ReceiverMailer < ApplicationMailer
+end

@@ -1,0 +1,7 @@
+width: 70%
+height: 60%
+toolbar:
+  - styleselect | bold italic | undo redo | alignleft aligncenter alignright
+plugins:
+  - image
+  - link

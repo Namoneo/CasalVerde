@@ -9,7 +9,6 @@ layout "creative"
     @contents = Content.all
     @guestbooks = Guestbook.all
     @contents = Content.all
-    @photos = Photo.all
   end
 
   def show

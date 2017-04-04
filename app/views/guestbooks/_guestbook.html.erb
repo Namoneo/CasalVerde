@@ -1,12 +1,10 @@
 <div class="row is-flex">
     <% @guestbooks.limit(3).order("RANDOM()").each do |guestbook| %>
       <div class="col-sm-4">
-        <div class="card" style="width: 35rem; text-align: center;">
+        <div class="card" style="width: 35rem;">
           <div class="card-block">
-              <h4 class="card-title">Guest:
-              <%= guestbook.name %></h4>
-              <p class="card-text"> Message:
-              <%= guestbook.message %></p>
+              <p class="card-text speech-bubble"><%= guestbook.message %></p>
+              <h4 class="card-title guest-name"><%= guestbook.name %></h4>
           </div>
         </div>
       </div>

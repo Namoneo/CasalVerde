@@ -3,6 +3,7 @@
  *= require font_awesome
  *= require animate.min.css
  *= require creative/creative.css
+ *= require creative/speechBubble
  *= require bootstrap-datetimepicker
  *= require_self
 */

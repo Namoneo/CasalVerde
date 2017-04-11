@@ -88,3 +88,6 @@ gem 'country_select'
 
 # Use for deploy
 gem 'rails_12factor', group: :production
+
+# Able to manipulate ics files
+gem 'icalendar', '~> 2.4', '>= 2.4.1'

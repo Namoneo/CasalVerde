@@ -3,30 +3,30 @@
 <p>Would be cool to have some stats here. Example: table with the newest resersvations.</p>
 
 <% 
-
-#linking to external file 
-#TripAdvisor test source
-calendars_tripadvisor = nil
-open("https://calendar.google.com/calendar/ical/ashdeveloper510%40gmail.com/public/basic.ics") do |cal|
- calendars_tripadvisor = Icalendar::Calendar.parse(cal) 
-end
-
-#Booking test source
-calendars_bookingdot = nil
-open("https://calendar.google.com/calendar/ical/9b0dhncfrtecciabrfhsid5cdk%40group.calendar.google.com/public/basic.ics") do |cal|
- calendars_bookingdot = Icalendar::Calendar.parse(cal) 
-end
-
-#Micazu test source
-calendars_micazu = nil
-open("https://calendar.google.com/calendar/ical/cafqcclv9iivgrqjt8pcjqjm1k%40group.calendar.google.com/public/basic.ics") do |cal|
- calendars_micazu = Icalendar::Calendar.parse(cal) 
-end
+    #TripAdvisor test source
+    calendars_tripadvisor = nil
+    open("https://calendar.google.com/calendar/ical/ashdeveloper510%40gmail.com/public/basic.ics") do |cal|
+     calendars_tripadvisor = Icalendar::Calendar.parse(cal) 
+    end
+    
+    #Booking test source
+    calendars_bookingdot = nil
+    open("https://calendar.google.com/calendar/ical/9b0dhncfrtecciabrfhsid5cdk%40group.calendar.google.com/public/basic.ics") do |cal|
+     calendars_bookingdot = Icalendar::Calendar.parse(cal) 
+    end
+    
+    #Micazu test source
+    calendars_micazu = nil
+    open("https://calendar.google.com/calendar/ical/cafqcclv9iivgrqjt8pcjqjm1k%40group.calendar.google.com/public/basic.ics") do |cal|
+     calendars_micazu = Icalendar::Calendar.parse(cal) 
+    end
 
 #select the calendar
 calendar_trip = calendars_tripadvisor.first
 calendar_booking = calendars_bookingdot.first
 calendar_micazu = calendars_micazu.first
+
+calendar_casal = Icalendar::Calendar.new
 
 
 #create an event
@@ -34,41 +34,75 @@ event = Icalendar::Event.new
 event.dtstart = Icalendar::Values::Date.new('20170428')
 event.dtend   = Icalendar::Values::Date.new('20170429')
 event.summary = "A great event!"
-calendar_trip.add_event(event)
+calendar_casal.add_event(event)
 
 #create event
-event2 = calendar_trip.event  # This automatically adds the event to the calendar
+event2 = calendar_casal.event  # This automatically adds the event to the calendar
 event2.dtstart = Icalendar::Values::Date.new('20170328')
 event2.dtend   = Icalendar::Values::Date.new('20170329')
 event2.summary = "Another great event! #2"
 
 #create event
-event3 = calendar_trip.event  # This automatically adds the event to the calendar
+event3 = calendar_casal.event  # This automatically adds the event to the calendar
 event3.dtstart = Icalendar::Values::Date.new('20170328')
 event3.dtend   = Icalendar::Values::Date.new('20170329')
 event3.summary = "Another great event! #3"
 
 #get and show info from calendar
-calendar_trip.events.each do |event| %>
+number_events_casal = Array.new
+
+calendar_casal.events.each do |event|
+    number_events_casal.push(1)
+  %>
   <p><%=event.summary%> starts at: <%=event.dtstart%> and ends at <%=event.dtend%></p>
   <% puts "#{event.summary} starts at: #{event.dtstart} and ends at #{event.dtend}" 
 end  
 
-calendar_micazu.events.each do |event| %>
+number_events_micazu = Array.new
+number_events_booking = Array.new
+number_events_trip = Array.new
+
+calendar_micazu.events.each do |event| 
+  calendar_casal.add_event (event)
+  number_events_micazu.push(1) 
+  %>
+  <p><%=event.summary%> starts at: <%=event.dtstart%> and ends at <%=event.dtend%></p>
+  <% puts "#{event.summary} starts at: #{event.dtstart} and ends at #{event.dtend}" 
+end
+
+calendar_booking.events.each do |event| 
+  calendar_casal.add_event (event)
+  number_events_booking.push(1)
+  %>
+  <p><%=event.summary%> starts at: <%=event.dtstart%> and ends at <%=event.dtend%></p>
+  <% puts "#{event.summary} starts at: #{event.dtstart} and ends at #{event.dtend}" 
+end
+
+calendar_trip.events.each do |event| 
+  calendar_casal.add_event (event)
+  number_events_trip.push(1)
+  %>
   <p><%=event.summary%> starts at: <%=event.dtstart%> and ends at <%=event.dtend%></p>
   <% puts "#{event.summary} starts at: #{event.dtstart} and ends at #{event.dtend}" 
 end
 
 #publish and turn info in ics info
-calendar_trip.publish
-calendar_micazu.publish
-cal_string = render :text =>  calendar_trip.to_ical 
+# calendar_trip.publish
+# calendar_micazu.publish
+# calendar_booking.publish
+calendar_casal.publish
+
+cal_string = render :text =>  calendar_casal.to_ical 
 
 #info into (create) ics file, this file adress can be used for the other systems
 File.open("test.ics", "w") { |f| f.write cal_string }
 
-puts calendar_micazu
-puts calendar_booking
-puts calendar_trip
+puts number_events_casal.count
+puts number_events_micazu.count
+puts number_events_booking.count
+puts number_events_trip.count
+total_events = number_events_casal.count+number_events_micazu.count+number_events_booking.count+number_events_trip.count
+puts total_events
+
 
 %>

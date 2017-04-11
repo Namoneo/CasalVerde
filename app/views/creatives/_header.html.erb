@@ -1,12 +1,17 @@
 <header id="page-top">
-    <div class="header-content">
-        <div class="header-content-inner">
-            <h1>Cas'al Verde</h1>
-        <div class="col-lg-8 col-lg-offset-2 text-center">
-          <% @info_content = Content.find_by_name("Header") %>
-          <p><%= render "shared/text"%></p>
-            <%= render 'shared/booking-widget' %>
-        </div>
-        </div>
+<div class="container">
+    <div class="col-sm-4" style="border-radius:10%; background-color:#ffbf00; margin-top:75px">
+      <br><br><br>
+      <h1>Cas'al Verde</h1>
+      <span class="h2-divider"></span>
+      <% @info_content = Content.find_by_name("Header") %>
+      <p><%= render "shared/text"%></p>
+      <%= render 'shared/booking-widget' %>
     </div>
+    <div class="col-sm-8" style="border-radius:2%; background-color:#ffbf00; margin-top:75px">
+      <br><br><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+          irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+</div>
 </header>

@@ -2,25 +2,28 @@
 <p>This is the admin panel.</p>
 <p>Would be cool to have some stats here. Example: table with the newest resersvations.</p>
 
-<% 
 
-#linking to external file 
+<%
+
+#linking to external file
 #TripAdvisor test source
 calendars_tripadvisor = nil
 open("https://calendar.google.com/calendar/ical/ashdeveloper510%40gmail.com/public/basic.ics") do |cal|
- calendars_tripadvisor = Icalendar::Calendar.parse(cal) 
+ calendars_tripadvisor = Icalendar::Calendar.parse(cal)
+
 end
 
 #Booking test source
 calendars_bookingdot = nil
 open("https://calendar.google.com/calendar/ical/9b0dhncfrtecciabrfhsid5cdk%40group.calendar.google.com/public/basic.ics") do |cal|
- calendars_bookingdot = Icalendar::Calendar.parse(cal) 
+
+ calendars_bookingdot = Icalendar::Calendar.parse(cal)
 end
 
 #Micazu test source
 calendars_micazu = nil
 open("https://calendar.google.com/calendar/ical/cafqcclv9iivgrqjt8pcjqjm1k%40group.calendar.google.com/public/basic.ics") do |cal|
- calendars_micazu = Icalendar::Calendar.parse(cal) 
+ calendars_micazu = Icalendar::Calendar.parse(cal)
 end
 
 #select the calendar
@@ -51,18 +54,22 @@ event3.summary = "Another great event! #3"
 #get and show info from calendar
 calendar_trip.events.each do |event| %>
   <p><%=event.summary%> starts at: <%=event.dtstart%> and ends at <%=event.dtend%></p>
-  <% puts "#{event.summary} starts at: #{event.dtstart} and ends at #{event.dtend}" 
-end  
+
+  <% puts "#{event.summary} starts at: #{event.dtstart} and ends at #{event.dtend}"
+end
 
 calendar_micazu.events.each do |event| %>
   <p><%=event.summary%> starts at: <%=event.dtstart%> and ends at <%=event.dtend%></p>
-  <% puts "#{event.summary} starts at: #{event.dtstart} and ends at #{event.dtend}" 
+  <% puts "#{event.summary} starts at: #{event.dtstart} and ends at #{event.dtend}"
 end
 
 #publish and turn info in ics info
 calendar_trip.publish
 calendar_micazu.publish
-cal_string = render :text =>  calendar_trip.to_ical 
+
+cal_string = render :text =>  calendar_trip.to_ical
+
+
 
 #info into (create) ics file, this file adress can be used for the other systems
 File.open("test.ics", "w") { |f| f.write cal_string }
@@ -71,4 +78,7 @@ puts calendar_micazu
 puts calendar_booking
 puts calendar_trip
 
+
 %>
+
+

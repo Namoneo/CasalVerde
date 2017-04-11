@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170203142321) do
+ActiveRecord::Schema.define(version: 20170411163628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,21 +20,10 @@ ActiveRecord::Schema.define(version: 20170203142321) do
     t.date     "end_date"
     t.integer  "number_of_nights"
     t.integer  "number_of_guests"
-    t.integer  "salutation"
-    t.string   "first_name"
-    t.string   "insertion"
-    t.string   "last_name"
-    t.date     "date_of_birth"
-    t.string   "country"
-    t.string   "street"
-    t.integer  "house_number"
-    t.string   "zip_code"
-    t.string   "city"
-    t.string   "phone_number"
-    t.string   "email"
+    t.integer  "price"
+    t.string   "calendar_name"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
-    t.integer  "origin",           default: 0
     t.boolean  "confirmed",        default: false
   end
 
@@ -52,6 +41,25 @@ ActiveRecord::Schema.define(version: 20170203142321) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.boolean  "published",  default: false
+  end
+
+  create_table "guests", force: :cascade do |t|
+    t.string   "salutation"
+    t.string   "first_name"
+    t.string   "insertion"
+    t.string   "last_name"
+    t.date     "date_of_birth"
+    t.string   "country"
+    t.string   "street"
+    t.string   "house_number"
+    t.string   "zip_code"
+    t.string   "city"
+    t.string   "phone_number"
+    t.string   "email"
+    t.integer  "booking_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["booking_id"], name: "index_guests_on_booking_id", using: :btree
   end
 
   create_table "photos", force: :cascade do |t|

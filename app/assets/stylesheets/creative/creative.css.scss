@@ -84,7 +84,7 @@ aside {
 .navbar-default {
     border-color: rgba(34,34,34,.05);
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
-    background-color: #fff;
+    background-color: #000;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -133,7 +133,7 @@ aside {
     }
 
     .navbar-default .navbar-header .navbar-brand {
-        color: rgba(255,255,255,.7);
+        color: #000;
     }
 
     .navbar-default .navbar-header .navbar-brand:hover,
@@ -143,7 +143,7 @@ aside {
 
     .navbar-default .nav > li>a,
     .navbar-default .nav>li>a:focus {
-        color: rgba(255,255,255,.7);
+        color: #000;
     }
 
     .navbar-default .nav > li>a:hover,
@@ -182,8 +182,7 @@ header {
     width: 100%;
     min-height: auto;
     text-align: center;
-    color: #fff;
-    background-image: asset-data-url("creative/header.jpg");
+    color: #000;
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -213,7 +212,7 @@ header .header-content .header-content-inner p {
     margin-bottom: 50px;
     font-size: 16px;
     font-weight: 300;
-    color: rgba(255,255,255,.7);
+    color: #000;
 }
 
 @media(min-width:768px) {
@@ -591,3 +590,20 @@ header .header {
     top:480px; /* your iframe height */
     margin-top:-480px; /* your iframe height */
     }
+
+.h2-divider {
+        height: 1px;
+        width: 120px;
+        background: #000;
+        display: block;
+        margin: auto;
+}
+
+.subtitle {
+    font-family: 'Old Standard TT', serif;
+    font-style: italic;
+    color: #666;
+    font-size: 1.8rem;
+    line-height: 30px;
+    margin-top: 25px;
+}

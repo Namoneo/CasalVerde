@@ -13,6 +13,26 @@ def self.micazu
   where(origin: 2)
 end
 
+def calendars_tripadvisor
+open("https://calendar.google.com/calendar/ical/ashdeveloper510%40gmail.com/public/basic.ics") do |cal|
+ calendars_tripadvisor = Icalendar::Calendar.parse(cal)
+end
+end
+
+#Booking test source
+def calendars_bookingdot
+open("https://calendar.google.com/calendar/ical/9b0dhncfrtecciabrfhsid5cdk%40group.calendar.google.com/public/basic.ics") do |cal|
+ calendars_bookingdot = Icalendar::Calendar.parse(cal)
+end
+end
+
+#Micazu test source
+def calendars_micazu
+open("https://calendar.google.com/calendar/ical/cafqcclv9iivgrqjt8pcjqjm1k%40group.calendar.google.com/public/basic.ics") do |cal|
+ calendars_micazu = Icalendar::Calendar.parse(cal)
+end
+end
+
   # validates :first_name, format: { with: /\A[a-zA-Z]\z/,
   #   message: "only allows letters" }
   # validates :last_name, format: { with: /\A[a-zA-Z]\z/,

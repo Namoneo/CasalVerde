@@ -24,5 +24,6 @@ Rails.application.routes.draw do
     resources :bookings, except: [:show]
     resources :guestbooks, except: [:show]
     resources :seasons, except: [:show]
+    resources :contents, only: [:index, :edit, :update,]
   end
 end

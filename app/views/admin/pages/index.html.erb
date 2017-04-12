@@ -87,9 +87,6 @@ calendar_trip.events.each do |event|
 end
 
 #publish and turn info in ics info
-# calendar_trip.publish
-# calendar_micazu.publish
-# calendar_booking.publish
 calendar_casal.publish
 
 cal_string = render :text =>  calendar_casal.to_ical 

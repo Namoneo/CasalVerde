@@ -2,35 +2,15 @@ class Booking < ApplicationRecord
   #validates :first_name, :last_name, :date_of_birth, :country, :street, :house_number, :zip_code, :city, :phone_number, :email, presence: true
 
 def self.casal
-  where(origin: 0)
+ where(calendar_name: "casal")
 end
 
 def self.bookingcom
-  where(origin: 1)
+  where(calendar_name: "bookingcom")
 end
 
 def self.micazu
-  where(origin: 2)
-end
-
-def calendars_tripadvisor
-open("https://calendar.google.com/calendar/ical/ashdeveloper510%40gmail.com/public/basic.ics") do |cal|
- calendars_tripadvisor = Icalendar::Calendar.parse(cal)
-end
-end
-
-#Booking test source
-def calendars_bookingdot
-open("https://calendar.google.com/calendar/ical/9b0dhncfrtecciabrfhsid5cdk%40group.calendar.google.com/public/basic.ics") do |cal|
- calendars_bookingdot = Icalendar::Calendar.parse(cal)
-end
-end
-
-#Micazu test source
-def calendars_micazu
-open("https://calendar.google.com/calendar/ical/cafqcclv9iivgrqjt8pcjqjm1k%40group.calendar.google.com/public/basic.ics") do |cal|
- calendars_micazu = Icalendar::Calendar.parse(cal)
-end
+  where(calendar_name: "micazu")
 end
 
   # validates :first_name, format: { with: /\A[a-zA-Z]\z/,
@@ -175,10 +155,6 @@ end
      end
     return @all_days
    end
-
-  def full_name
-    "#{first_name} #{last_name}"
-  end
 
   def booking_dates
     start_date.to_s + " till " + end_date.to_s

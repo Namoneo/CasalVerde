@@ -21,9 +21,10 @@
         <% end %>
       </td>
       <td><%= booking.booking_dates%></td>
-      <td><%= booking.full_name %></td>
-      <td><%= booking.phone_number%></td>
-      <td><%= booking.email%></td>
+      <td><%= Guest.find(booking.id).full_name %></td>
+      <td><%= Guest.find(booking.id).phone_number%></td>
+      <td><%= Guest.find(booking.id).email %></td>
+
       <td><%= link_to "Edit", edit_admin_booking_path(booking), class: "btn btn-primary btn-sm"%></td>
       <td><%= link_to "Delete", admin_booking_path(booking), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %></td>
     </tr>

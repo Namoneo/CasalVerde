@@ -21,7 +21,7 @@
         <% end %>
       </td>
       <td><%= booking.booking_dates%></td>
-      <td><%= Guest.find(booking.id).full_name %></td>
+      <td><%= Guest.find(:booking_id => booking.id).first_name %></td>
       <td><%= Guest.find(booking.id).phone_number%></td>
       <td><%= Guest.find(booking.id).email %></td>
 

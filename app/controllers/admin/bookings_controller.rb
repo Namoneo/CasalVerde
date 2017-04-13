@@ -42,7 +42,7 @@ before_action :set_booking, except: [:index, :new, :create]
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :number_of_guests)
+    params.require(:booking).permit(:start_date, :end_date, :number_of_guests, :price, :calendar_name)
   end
 
   def set_booking

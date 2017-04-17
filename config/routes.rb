@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :guestbooks, only: [:show, :index, :new, :create]
   resources :questions, only: [:create]
-  resources :guests
+  resources :guests, only: [:new, :create, :edit, :update]
 
 
   post '/email_processor' => 'griddler/emails#create'

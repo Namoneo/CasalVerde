@@ -1,22 +1,30 @@
 class GuestsController < ApplicationController
+  before_action :set_guest, only: [:show, :edit, :update]
 
   def index
     @guests = Guest.all
-    @guest = Guest.find(params[:id])
   end
 
   def new
     @guest = Guest.new
+
+  end
+
+  def edit
+
   end
 
   def create
     @guest = Guest.new(guest_params)
-    @booking = Booking.new(booking_params)
+
     if @guest.save
-      redirect_to "http://localhost:3000/" notice: "Thanks for booking"
+      redirect_to @guest, notice: "Thanks for booking!"
     else
       render :new
     end
+  end
+
+  def update
   end
 
   private
@@ -26,7 +34,7 @@ class GuestsController < ApplicationController
   end
 
   def guest_params
-    params.require(:guest).permit(:first_name, :last_name, :date_of_birth, :country, :street, :house_number, :zip_code, :city, :phone_number, :email, :email_confirmation, :booking_id)
+    params.require(:guest).permit(:first_name, :last_name, :date_of_birth, :country, :street, :house_number, :zip_code, :city, :phone_number, :email)
   end
 
   def set_guest

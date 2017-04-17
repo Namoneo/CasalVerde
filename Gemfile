@@ -56,6 +56,9 @@ group :development, :test do
   gem 'factory_girl_rails', '4.7.0'
   gem 'faker', '1.6.6'
   gem 'selenium-webdriver', '~> 2.53'
+  gem 'pry'
+  gem 'pry-nav'
+  gem 'pry-rails'
 end
 
 group :test do

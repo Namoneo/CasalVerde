@@ -1,5 +1,7 @@
 class Booking < ApplicationRecord
-  has_many :guests
+  
+
+
 
 def self.casal
  where(calendar_name: "casal")

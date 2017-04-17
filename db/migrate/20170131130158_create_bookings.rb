@@ -7,6 +7,7 @@ class CreateBookings < ActiveRecord::Migration[5.0]
       t.integer :number_of_guests
       t.integer :price
       t.string :calendar_name
+      t.references :guest
       t.timestamps
     end
   end

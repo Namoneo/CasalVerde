@@ -22,9 +22,11 @@ ActiveRecord::Schema.define(version: 20170411163628) do
     t.integer  "number_of_guests"
     t.integer  "price"
     t.string   "calendar_name"
+    t.integer  "guest_id"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.boolean  "confirmed",        default: false
+    t.index ["guest_id"], name: "index_bookings_on_guest_id", using: :btree
   end
 
   create_table "contents", force: :cascade do |t|
@@ -56,10 +58,8 @@ ActiveRecord::Schema.define(version: 20170411163628) do
     t.string   "city"
     t.string   "phone_number"
     t.string   "email"
-    t.integer  "booking_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["booking_id"], name: "index_guests_on_booking_id", using: :btree
   end
 
   create_table "photos", force: :cascade do |t|

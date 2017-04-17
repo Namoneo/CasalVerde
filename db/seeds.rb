@@ -80,26 +80,25 @@ Season.create!(start_date: Date.parse("2017-09-02"), end_date: Date.parse("2017-
 
 User.create(email: "admin@casalverde.nl", password: "casalverde", admin: true)
 
-
-Booking.create!(start_date: Date.parse("2017-02-01"), end_date: Date.parse("2017-02-04"), number_of_nights: 3, price: 240, number_of_guests: 6, calendar_name: "casal", confirmed: true)
-
-Booking.create!(start_date: Date.parse("2017-02-05"), end_date: Date.parse("2017-02-10"), number_of_nights: 5, price: 400, number_of_guests: 3, calendar_name: "casal", confirmed: true)
-
-Booking.create!(start_date: Date.parse("2017-03-01"), end_date: Date.parse("2017-03-04"), number_of_nights: 3, price: 240, number_of_guests: 6, calendar_name: "casal", confirmed: true)
-
-Booking.create!(start_date: Date.parse("2017-03-12"), end_date: Date.parse("2017-03-18"), number_of_nights: 5, price: 800, number_of_guests: 6, calendar_name: "casal", confirmed: false)
-
-Booking.create!(start_date: Date.parse("2017-04-01"), end_date: Date.parse("2017-04-04"), number_of_nights: 3, price: 240, number_of_guests: 6, calendar_name: "casal", confirmed: true)
-
-Booking.create!(start_date: Date.parse("2017-02-01"), end_date: Date.parse("2017-02-04"), number_of_nights: 3, price: 240, number_of_guests: 6, calendar_name: "casal", confirmed: false)
+Guest.create(salutation: "Mr.", first_name: "Henk", insertion: "de", last_name: "Vries", date_of_birth: Date.parse("1972-09-02"), country: "The Netherlands", street: "Naxosdreef", house_number: 6, zip_code: "3312DD", city: "Utrecht", phone_number: "0612321222", email: "Henk@vriesnet.nl")
+Guest.create(salutation: "Mr.", first_name: "Ingrid", insertion: "", last_name: "Langen", date_of_birth: Date.parse("1954-03-02"), country: "The Netherlands", street: "Naxosdreef", house_number: 6, zip_code: "3312DD", city: "Emmen", phone_number: "062121222", email: "Ingrid@vriesnet.nl")
+Guest.create(salutation: "Mr.", first_name: "Johan", insertion: "de", last_name: "Boer", date_of_birth: Date.parse("1990-08-02"), country: "The Netherlands", street: "Langestraat", house_number: 26, zip_code: "1000AD", city: "Amsterdam", phone_number: "0612321222", email: "Johan@lajkdflsajklsa.nl")
+Guest.create(salutation: "Mr.", first_name: "Lieve", insertion: "", last_name: "Belg", date_of_birth: Date.parse("1972-09-12"), country: "Belgium", street: "Bakerstreet", house_number: 26, zip_code: "32121AA", city: "Antwerp", phone_number: "03212321222", email: "Lieve@belige.nl")
+Guest.create(salutation: "Ms.", first_name: "Joke", insertion: "de", last_name: "Meijer", date_of_birth: Date.parse("1990-02-02"), country: "The Netherlands", street: "Langestraat", house_number: 26, zip_code: "1000AD", city: "Amsterdam", phone_number: "06323422", email: "joke@lala.nl")
+Guest.create( salutation: "Ms.", first_name: "Klaas", insertion: "", last_name: "Janssen", date_of_birth: Date.parse("1972-03-12"), country: "Belgium", street: "Bakerstreet", house_number: 26, zip_code: "32121AA", city: "Antwerp", phone_number: "067421222", email: "Klaas@email.nl")
 
 
-Guest.create(salutation: "Mr.", first_name: "Henk", insertion: "de", last_name: "Vries", date_of_birth: Date.parse("1972-09-02"), country: "The Netherlands", street: "Naxosdreef", house_number: 6, zip_code: "3312DD", city: "Utrecht", phone_number: "0612321222", email: "Henk@vriesnet.nl", booking_id: 1)
-Guest.create(salutation: "Mr.", first_name: "Ingrid", insertion: "", last_name: "Langen", date_of_birth: Date.parse("1954-03-02"), country: "The Netherlands", street: "Naxosdreef", house_number: 6, zip_code: "3312DD", city: "Emmen", phone_number: "062121222", email: "Ingrid@vriesnet.nl", booking_id: 2)
-Guest.create(salutation: "Mr.", first_name: "Johan", insertion: "de", last_name: "Boer", date_of_birth: Date.parse("1990-08-02"), country: "The Netherlands", street: "Langestraat", house_number: 26, zip_code: "1000AD", city: "Amsterdam", phone_number: "0612321222", email: "Johan@lajkdflsajklsa.nl", booking_id: 3)
-Guest.create(salutation: "Mr.", first_name: "Lieve", insertion: "", last_name: "Belg", date_of_birth: Date.parse("1972-09-12"), country: "Belgium", street: "Bakerstreet", house_number: 26, zip_code: "32121AA", city: "Antwerp", phone_number: "03212321222", email: "Lieve@belige.nl", booking_id: 4)
-Guest.create(salutation: "Ms.", first_name: "Joke", insertion: "de", last_name: "Meijer", date_of_birth: Date.parse("1990-02-02"), country: "The Netherlands", street: "Langestraat", house_number: 26, zip_code: "1000AD", city: "Amsterdam", phone_number: "06323422", email: "joke@lala.nl", booking_id: 5)
-Guest.create( salutation: "Ms.", first_name: "Klaas", insertion: "", last_name: "Janssen", date_of_birth: Date.parse("1972-03-12"), country: "Belgium", street: "Bakerstreet", house_number: 26, zip_code: "32121AA", city: "Antwerp", phone_number: "067421222", email: "Klaas@email.nl", booking_id: 6)
+Booking.create!(start_date: Date.parse("2017-02-01"), end_date: Date.parse("2017-02-04"), number_of_nights: 3, price: 240, number_of_guests: 6, calendar_name: "casal", guest_id: 1, confirmed: true)
+
+Booking.create!(start_date: Date.parse("2017-02-05"), end_date: Date.parse("2017-02-10"), number_of_nights: 5, price: 400, number_of_guests: 3, calendar_name: "casal", guest_id: 2, confirmed: true)
+
+Booking.create!(start_date: Date.parse("2017-03-01"), end_date: Date.parse("2017-03-04"), number_of_nights: 3, price: 240, number_of_guests: 6, calendar_name: "casal", guest_id: 3, confirmed: true)
+
+Booking.create!(start_date: Date.parse("2017-03-12"), end_date: Date.parse("2017-03-18"), number_of_nights: 5, price: 800, number_of_guests: 6, calendar_name: "casal", guest_id: 4, confirmed: false)
+
+Booking.create!(start_date: Date.parse("2017-04-01"), end_date: Date.parse("2017-04-04"), number_of_nights: 3, price: 240, number_of_guests: 6, calendar_name: "casal", guest_id: 5, confirmed: true)
+
+Booking.create!(start_date: Date.parse("2017-02-01"), end_date: Date.parse("2017-02-04"), number_of_nights: 3, price: 240, number_of_guests: 6, calendar_name: "casal", guest_id: 6 , confirmed: false)
 
 
 Guestbook.create(name: "Gert", email: "gert@blabla.com", message: "This place is the best! I love It! Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah", published: true)

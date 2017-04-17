@@ -1,0 +1,26 @@
+<%= form_for @booking do |f| %>
+
+          <%= f.label :start_date, "Check-in" %>
+          <div class='input-group date' id='datetimepicker-start'>
+            <%= f.text_field :start_date, :class => "form-control" %>
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+        </div>
+
+        <%= f.label :end_date, "Check-out" %>
+        <div class='input-group date' id='datetimepicker-end'>
+          <%= f.text_field :end_date, :class => "form-control" %>
+          <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+
+        <label for="Number of Guests", class="form-label-alt">Number of Guests</label>
+        <div>
+          <%= f.select :number_of_guests, [["1", 1],["2", 2],["3", 3],["4", 4],["5", 5],["6", 6],["7", 7],["8", 8],["9", 9],["10", 10],["11", 11],["12", 12],["13", 13],["14", 14],["15", 15]] %>
+
+          <%= f.submit "Book now", class: "btn btn-default btn-xl" %>
+        </div>
+
+<% end %>

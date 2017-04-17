@@ -1,5 +1,5 @@
 class Booking < ApplicationRecord
-  #validates :first_name, :last_name, :date_of_birth, :country, :street, :house_number, :zip_code, :city, :phone_number, :email, presence: true
+  has_many :guests
 
 def self.casal
  where(calendar_name: "casal")

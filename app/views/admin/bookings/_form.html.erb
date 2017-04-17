@@ -47,7 +47,7 @@
   </div>
 
   <hr>
-
+<%= fields_for [:admin, @guest] do |f| %>
     <div class="card card-block">
       <div class="row">
         <div class="col-md-6">
@@ -101,6 +101,7 @@
       </div>
       <div class="row">
         <div class="col-md-12 text-center">
+          <% end %>
           <div>
              <%= f.submit (@booking.new_record? ? "Create" : "Update"), class: "btn btn-default btn-xl"  %>
           </div>

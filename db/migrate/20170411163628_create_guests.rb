@@ -13,7 +13,6 @@ class CreateGuests < ActiveRecord::Migration[5.0]
       t.string :city
       t.string :phone_number
       t.string :email
-      t.references :booking
 
       t.timestamps
     end

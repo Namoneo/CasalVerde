@@ -1,5 +1,5 @@
 class GuestsController < ApplicationController
-  before_action :set_guest, only: [:show, :edit, :update]
+  before_action :set_guest, except: [:index, :new, :create]
 
   def index
     @guests = Guest.all
@@ -7,18 +7,20 @@ class GuestsController < ApplicationController
 
   def new
     @guest = Guest.new
+  end
 
+  def show
+    @guests = Guest.all
   end
 
   def edit
-
   end
 
   def create
     @guest = Guest.new(guest_params)
 
     if @guest.save
-      redirect_to @guest, notice: "Thanks for booking!"
+      redirect_to edit_booking_path(@booking)
     else
       render :new
     end
@@ -29,12 +31,8 @@ class GuestsController < ApplicationController
 
   private
 
-  def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :number_of_guests)
-  end
-
   def guest_params
-    params.require(:guest).permit(:first_name, :last_name, :date_of_birth, :country, :street, :house_number, :zip_code, :city, :phone_number, :email)
+    params.require(:guest).permit(:salutation, :first_name, :insertion, :last_name, :date_of_birth, :country, :street, :house_number, :zip_code, :city, :phone_number, :email)
   end
 
   def set_guest

@@ -1,19 +1,19 @@
 class Booking < ApplicationRecord
-  
+
+belongs_to :guest, required: false
 
 
-
-def self.casal
- where(calendar_name: "casal")
-end
-
-def self.bookingcom
-  where(calendar_name: "bookingcom")
-end
-
-def self.micazu
-  where(calendar_name: "micazu")
-end
+# def self.casal
+#  where(calendar_name: "casal")
+# end
+#
+# def self.bookingcom
+#   where(calendar_name: "bookingcom")
+# end
+#
+# def self.micazu
+#   where(calendar_name: "micazu")
+# end
 
   # validates :first_name, format: { with: /\A[a-zA-Z]\z/,
   #   message: "only allows letters" }

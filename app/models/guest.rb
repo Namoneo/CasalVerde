@@ -1,6 +1,8 @@
 class Guest < ApplicationRecord
+  has_many :bookings
 
-  validates_presence_of :first_name, :last_name, :date_of_birth, :country, :street, :house_number, :zip_code, :city, :phone_number, :email
+
+  # validates_presence_of :first_name, :last_name, :date_of_birth, :country, :street, :house_number, :zip_code, :city, :phone_number, :email
 
 
   #validates  presence: true
